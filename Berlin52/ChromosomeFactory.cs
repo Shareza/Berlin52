@@ -15,8 +15,6 @@ namespace Berlin52
                 population[i] = new Chromosome()
                     .Create()
                     .ShuffleGenes();
-
-                Thread.Sleep(10);
             }
             return population;
         }
