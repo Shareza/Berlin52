@@ -21,8 +21,8 @@ namespace Berlin52
 
             stopwatch.Stop();
 
-            foreach (var item in population.Members)
-                Console.WriteLine(item.Fitness);
+            foreach (var member in population.Members)
+                Console.WriteLine(member.Fitness);
 
             Console.WriteLine($"Time elapsed: {stopwatch.Elapsed}");
             Console.ReadKey();
