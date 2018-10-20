@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 
-
 namespace Berlin52
 {
     public class Chromosome

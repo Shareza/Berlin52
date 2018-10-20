@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace Berlin52
+﻿namespace Berlin52
 {
     public class ChromosomeFactory
     {

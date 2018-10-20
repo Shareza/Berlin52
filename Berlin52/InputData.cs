@@ -16,7 +16,6 @@ namespace Berlin52
             string[] items = line.Split(' ');
             Array.Resize(ref items, items.Length - 1);
 
-            var test = Distances.Length;
             for(int i = 0; i < items.Length; i++)
             {
                 Distances[iterator, i] = Int32.Parse(items[i]);
