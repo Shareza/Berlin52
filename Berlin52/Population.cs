@@ -12,7 +12,7 @@ namespace Berlin52
             Members = members;
         }
 
-        public void CalculateFitness(int[,] distances)
+        public Population CalculateFitness(int[,] distances)
         {
             var fitness = 0;
 
@@ -26,6 +26,34 @@ namespace Berlin52
                 Members[i].Fitness = fitness;
                 fitness = 0;
             }
+            return this;
+        }
+
+        public Population Mutate(int mutationRate)
+        {
+            return this;
+        }
+
+        public Population CrossOver(int crossoverRate)
+        {
+            foreach (var member in Members)
+                Console.WriteLine(member.Fitness);
+            Console.WriteLine("------------------------");
+
+            return this;
+        }
+
+        public Population PerformSelection(int selectionRate)
+        {
+            var selected = new Chromosome[AppSetting.PopulationSize];
+
+            for(int i = 0; i < AppSetting.PopulationSize; i++)
+            {
+                var randomMembers = ChromosomeHelper.GetRandom(selectionRate, Members);
+                selected[i] = ChromosomeHelper.FindFittest(randomMembers);
+            }
+            Members = selected;
+            return this;
         }
     }
 }

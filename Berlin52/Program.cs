@@ -17,7 +17,13 @@ namespace Berlin52
             var members = chromosomeFactory.CreateInitialPopulation(AppSetting.PopulationSize);
 
             Population population = new Population(members);
-            population.CalculateFitness(reader.data.Distances);
+
+            GeneticSimulator simulation = new GeneticSimulator(population, reader.data.Distances);
+            simulation.Start();
+
+            //initialPopulation.CalculateFitness(reader.data.Distances);
+
+
 
             stopwatch.Stop();
 

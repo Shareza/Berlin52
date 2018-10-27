@@ -14,6 +14,11 @@ namespace Berlin52
             Genes = new int[AppSetting.NumberOfGenes];
         }
 
+        public Chromosome(int fitness)
+        {
+            Fitness = fitness;
+        }
+
         public Chromosome Create()
         {
             for(int i = 0; i < AppSetting.NumberOfGenes; i++)

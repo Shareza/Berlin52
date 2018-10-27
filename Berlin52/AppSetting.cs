@@ -2,8 +2,12 @@
 {
     public static class AppSetting
     {
-        public static string FilePath = @"C:\Code\Berlin52\Berlin52\Data.txt";
-        public static int NumberOfGenes = 52;
-        public static int PopulationSize = 10;
+        public static string FilePath = @"..\..\Data.txt";
+        public static int NumberOfGenes;
+
+        public static int PopulationSize = 5;
+        public static int SelectionRate = 3;
+        public static int CrossOverRate = 0;
+        public static int MutationRate = 0;
     }
 }
