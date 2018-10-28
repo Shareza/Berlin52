@@ -15,6 +15,6 @@
         public static int CrossOverRate = 0;
 
         public static MutationType MutationStrategy = MutationType.SwapMutation;
-        public static int MutationRate = 0;
+        public static int MutationRate = 20;
     }
 }

@@ -47,7 +47,8 @@
     <Compile Include="Entities\Chromosome.cs" />
     <Compile Include="Factories\ChromosomeFactory.cs" />
     <Compile Include="Helpers\ChromosomeHelper.cs" />
-    <Compile Include="Logger.cs" />
+    <Compile Include="Helpers\Logger.cs" />
+    <Compile Include="Helpers\MutationHelper.cs" />
     <Compile Include="Providers\CrossoverProvider.cs" />
     <Compile Include="Enums\CrossoverType.cs" />
     <Compile Include="Providers\FitnessProvider.cs" />
