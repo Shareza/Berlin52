@@ -44,16 +44,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSetting.cs" />
-    <Compile Include="Chromosome.cs" />
-    <Compile Include="ChromosomeFactory.cs" />
-    <Compile Include="InputData.cs" />
-    <Compile Include="FileReader.cs" />
-    <Compile Include="Population.cs" />
+    <Compile Include="Entities\Chromosome.cs" />
+    <Compile Include="Factories\ChromosomeFactory.cs" />
+    <Compile Include="Helpers\ChromosomeHelper.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Providers\CrossoverProvider.cs" />
+    <Compile Include="Enums\CrossoverType.cs" />
+    <Compile Include="Providers\FitnessProvider.cs" />
+    <Compile Include="GeneticSimulator.cs" />
+    <Compile Include="Input\InputData.cs" />
+    <Compile Include="Input\FileReader.cs" />
+    <Compile Include="Enums\MutationType.cs" />
+    <Compile Include="Providers\MutationProvider.cs" />
+    <Compile Include="Entities\Population.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Enums\SelectionType.cs" />
+    <Compile Include="Providers\SelectionProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

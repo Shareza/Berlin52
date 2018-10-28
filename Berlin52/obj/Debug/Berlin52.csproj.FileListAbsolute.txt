@@ -11,3 +11,10 @@ C:\Code\Berlin52\Berlin52\obj\Debug\Berlin52.csproj.CoreCompileInputs.cache
 C:\Code\Berlin52\Berlin52\obj\Debug\Berlin52.exe
 C:\Code\Berlin52\Berlin52\obj\Debug\Berlin52.pdb
 C:\Code\Berlin52\Berlin52\obj\Debug\Berlin52.csprojResolveAssemblyReference.cache
+C:\Code\Berlin\Berlin52\Berlin52\bin\Debug\Berlin52.exe.config
+C:\Code\Berlin\Berlin52\Berlin52\bin\Debug\Berlin52.exe
+C:\Code\Berlin\Berlin52\Berlin52\bin\Debug\Berlin52.pdb
+C:\Code\Berlin\Berlin52\Berlin52\obj\Debug\Berlin52.csprojAssemblyReference.cache
+C:\Code\Berlin\Berlin52\Berlin52\obj\Debug\Berlin52.csproj.CoreCompileInputs.cache
+C:\Code\Berlin\Berlin52\Berlin52\obj\Debug\Berlin52.exe
+C:\Code\Berlin\Berlin52\Berlin52\obj\Debug\Berlin52.pdb

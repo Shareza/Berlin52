@@ -6,14 +6,15 @@
         public static int NumberOfGenes;
 
         public static int PopulationSize = 40;
+        public static long NumberOfIterations = 100000;
 
-        public static SelectionType selectionStrategy = SelectionType.PMXSelection;
+        public static SelectionType SelectionStrategy = SelectionType.PMXSelection;
         public static int SelectionRate = 3;
 
-        public static CrossoverType crossoverStrategy = CrossoverType.MultiPointCrossover;
+        public static CrossoverType CrossoverStrategy = CrossoverType.MultiPointCrossover;
         public static int CrossOverRate = 0;
 
-        public static MutationType mutationStrategy = MutationType.SwapMutation;
+        public static MutationType MutationStrategy = MutationType.SwapMutation;
         public static int MutationRate = 0;
     }
 }
