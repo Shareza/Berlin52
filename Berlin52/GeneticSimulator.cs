@@ -24,10 +24,12 @@ namespace Berlin52
             var fitnessProvider = new FitnessProvider(Distances);
             var selectionProvider = new SelectionProvider(AppSetting.SelectionStrategy, AppSetting.SelectionRate);
             var crossoverProvider = new CrossoverProvider(AppSetting.CrossoverStrategy, AppSetting.CrossOverRate);
-            var mutationProvider = new MutationProvider(AppSetting.MutationStrategy, AppSetting.MutationRate);
+            var mutationProvider = new MutationProvider(AppSetting.MutationStrategy, AppSetting.GeneMutationRate, AppSetting.ChromosomeMutationRate, Distances);
 
             while(AppSetting.NumberOfIterations > 0)
             {
+                Logger.LogToConsole(Population, PopulationNumber);
+
                 fitnessProvider.CalculateFitness(Population);
 
                 selectionProvider.Select(Population);
@@ -36,14 +38,8 @@ namespace Berlin52
 
                 mutationProvider.Mutate(Population);
 
-                Logger.LogToConsole(Population, PopulationNumber);
-                //Population
-                //    .CalculateFitness(Distances)
-                //    .PerformSelection(AppSetting.SelectionRate)
-                //    .CrossOver(AppSetting.CrossOverRate)
-                //    .Mutate(AppSetting.MutationRate);
-                AppSetting.NumberOfIterations--;
                 PopulationNumber++;
+                AppSetting.NumberOfIterations--;
             }
         }
     }

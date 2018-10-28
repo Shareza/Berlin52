@@ -2,29 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Berlin52.Helpers
 {
     public static class MutationHelper
     {
-        private static Random random;
-
-        public static void MutateWithSwapStrategy(Chromosome chromosome)
+        public static Chromosome MutateWithSwapStrategy(Chromosome chromosome)
         {
-            random = new Random();
+            var random = new Random();
 
             for(int i = 0; i < chromosome.Genes.Length; i++)
             {
-                var mutationProbability = random.Next(100);
+                Thread.Sleep(random.Next(3));
+                var mutationProbability = random.Next(0, 101);
 
-                if (mutationProbability <= AppSetting.MutationRate)
+                if (mutationProbability <= AppSetting.GeneMutationRate)
                     SwapGenes(chromosome, i);
             }
+            return chromosome;
         }
 
         private static void SwapGenes(Chromosome chromosome, int firstGene)
         {
+            var random = new Random();
             var secondGene = random.Next(chromosome.Genes.Length);
 
             var temp = chromosome.Genes[firstGene];

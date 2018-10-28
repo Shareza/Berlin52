@@ -19,7 +19,7 @@ namespace Berlin52
             for(int i = 0; i < selectionRate; i++)
             {
                 var rnd = random.Next(AppSetting.PopulationSize);
-                Thread.Sleep(random.Next(10));
+                Thread.Sleep(random.Next(3));
                 randomChromosomes[i] = members[rnd];
             }
             return randomChromosomes;

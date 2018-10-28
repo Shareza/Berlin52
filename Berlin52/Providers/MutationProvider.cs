@@ -1,23 +1,28 @@
 ﻿using System;
+using System.Threading;
 using Berlin52.Helpers;
 
 namespace Berlin52
 {
     public class MutationProvider
     {
-        private MutationType mutationStrategy;
-        private int mutationRate;
-        private Random random;
+        private MutationType MutationStrategy;
+        private int ChromosomeMutationRate;
+        private int GeneMutationRate;
+        private Random Random;
+        private int[,] Distances;
 
-        public MutationProvider(MutationType mutationStrategy, int mutationRate)
+        public MutationProvider(MutationType mutationStrategy, int geneMutationRate, int chromosomeMutationRate, int[,] distances)
         {
-            this.mutationStrategy = mutationStrategy;
-            this.mutationRate = mutationRate;
+            MutationStrategy = mutationStrategy;
+            ChromosomeMutationRate = chromosomeMutationRate;
+            GeneMutationRate = geneMutationRate;
+            Distances = distances;
         }
 
         public void Mutate(Population population)
         {
-            switch(mutationStrategy)
+            switch(MutationStrategy)
             {
                 case MutationType.SwapMutation:
                     SwapMutation(population);
@@ -27,20 +32,22 @@ namespace Berlin52
 
         private void SwapMutation(Population population)
         {
-            random = new Random();
+            Random = new Random();
 
             for(int i = 0; i < population.Members.Length; i++)
             {
-                var mutationProbability = random.Next(100);
+                Thread.Sleep(Random.Next(2));
+                var mutationProbability = Random.Next(0, 101);
 
-                if (mutationProbability <= mutationRate)
+                if (mutationProbability <= ChromosomeMutationRate)
                 {
-                    var member = population.Members[i];
+                    int fitness = population.Members[i].Fitness;
 
-                    MutationHelper.MutateWithSwapStrategy(member);
+                    var mutated = MutationHelper.MutateWithSwapStrategy(population.Members[i]);
+                    mutated.UpdateFitness(Distances);
 
-                    if (member.Fitness > population.Members[i].Fitness)
-                        population.Members[i] = member;
+                    if (mutated.Fitness < fitness)
+                        population.Members[i] = mutated;
                 }
             }
         }

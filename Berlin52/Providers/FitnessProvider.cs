@@ -26,5 +26,17 @@ namespace Berlin52
                 fitness = 0;
             }
         }
+
+        public void CalculateFitness(Chromosome chromosome)
+        {
+            var fitness = 0;
+
+                for (int j = 1; j < AppSetting.NumberOfGenes - 2; j++)
+                {
+                    fitness += distances[chromosome.Genes[j], chromosome.Genes[j + 1]];
+                }
+                fitness += distances[0, AppSetting.NumberOfGenes - 1];
+                chromosome.Fitness = fitness;
+            }
     }
 }

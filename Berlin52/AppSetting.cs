@@ -9,12 +9,13 @@
         public static long NumberOfIterations = 100000;
 
         public static SelectionType SelectionStrategy = SelectionType.PMXSelection;
-        public static int SelectionRate = 3;
+        public static int SelectionRate = 7;
 
         public static CrossoverType CrossoverStrategy = CrossoverType.MultiPointCrossover;
         public static int CrossOverRate = 0;
 
         public static MutationType MutationStrategy = MutationType.SwapMutation;
-        public static int MutationRate = 20;
+        public static int ChromosomeMutationRate = 40;
+        public static int GeneMutationRate = 50;
     }
 }

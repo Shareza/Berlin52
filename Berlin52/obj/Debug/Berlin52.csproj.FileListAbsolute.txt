@@ -18,3 +18,10 @@ C:\Code\Berlin\Berlin52\Berlin52\obj\Debug\Berlin52.csprojAssemblyReference.cach
 C:\Code\Berlin\Berlin52\Berlin52\obj\Debug\Berlin52.csproj.CoreCompileInputs.cache
 C:\Code\Berlin\Berlin52\Berlin52\obj\Debug\Berlin52.exe
 C:\Code\Berlin\Berlin52\Berlin52\obj\Debug\Berlin52.pdb
+C:\Code\Genetic\Berlin52\Berlin52\bin\Debug\Berlin52.exe.config
+C:\Code\Genetic\Berlin52\Berlin52\bin\Debug\Berlin52.exe
+C:\Code\Genetic\Berlin52\Berlin52\bin\Debug\Berlin52.pdb
+C:\Code\Genetic\Berlin52\Berlin52\obj\Debug\Berlin52.csprojResolveAssemblyReference.cache
+C:\Code\Genetic\Berlin52\Berlin52\obj\Debug\Berlin52.csproj.CoreCompileInputs.cache
+C:\Code\Genetic\Berlin52\Berlin52\obj\Debug\Berlin52.exe
+C:\Code\Genetic\Berlin52\Berlin52\obj\Debug\Berlin52.pdb

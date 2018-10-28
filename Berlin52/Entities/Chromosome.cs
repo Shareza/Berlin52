@@ -46,5 +46,17 @@ namespace Berlin52
 
             return this;
         }
+
+        public void UpdateFitness(int[,] distances)
+        {
+            var fitness = 0;
+
+            for (int j = 1; j < AppSetting.NumberOfGenes - 2; j++)
+            {
+                fitness += distances[Genes[j], Genes[j + 1]];
+            }
+            fitness += distances[0, AppSetting.NumberOfGenes - 1];
+            Fitness = fitness;
+        }
     }
 }
