@@ -9,7 +9,7 @@ namespace Berlin52
         private MutationType MutationStrategy;
         private int ChromosomeMutationRate;
         private int GeneMutationRate;
-        private Random Random;
+        //private Random Random;
         private int[,] Distances;
 
         public MutationProvider(MutationType mutationStrategy, int geneMutationRate, int chromosomeMutationRate, int[,] distances)
@@ -32,12 +32,12 @@ namespace Berlin52
 
         private void SwapMutation(Population population)
         {
-            Random = new Random();
+            //Random = new Random();
 
             for(int i = 0; i < population.Members.Length; i++)
             {
-                Thread.Sleep(Random.Next(2));
-                var mutationProbability = Random.Next(0, 101);
+                //Thread.Sleep(Random.Next(2));
+                var mutationProbability = RandomHelper.RandomInt(0, 101);
 
                 if (mutationProbability <= ChromosomeMutationRate)
                 {

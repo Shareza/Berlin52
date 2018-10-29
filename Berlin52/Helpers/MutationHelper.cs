@@ -11,23 +11,34 @@ namespace Berlin52.Helpers
     {
         public static Chromosome MutateWithSwapStrategy(Chromosome chromosome)
         {
-            var random = new Random();
+            //var random = new Random();
 
-            for(int i = 0; i < chromosome.Genes.Length; i++)
-            {
-                Thread.Sleep(random.Next(3));
-                var mutationProbability = random.Next(0, 101);
+            //for(int i = 0; i < chromosome.Genes.Length; i++)
+            //{
+            //    //Thread.Sleep(random.Next(3));
+            //    //var mutationProbability = random.Next(0, 101);
+            //    var mutationProbability = RandomHelper.RandomInt(0, 101);
 
-                if (mutationProbability <= AppSetting.GeneMutationRate)
-                    SwapGenes(chromosome, i);
-            }
+            //    if (mutationProbability <= AppSetting.GeneMutationRate)
+            //        SwapGenes(chromosome, i);
+            //}
+            //return chromosome;
+
+            var firstGene = RandomHelper.RandomInt(chromosome.Genes.Length);
+            var secondGene = RandomHelper.RandomInt(chromosome.Genes.Length);
+
+            var temp = chromosome.Genes[firstGene];
+            chromosome.Genes[firstGene] = chromosome.Genes[secondGene];
+            chromosome.Genes[secondGene] = temp;
+
             return chromosome;
         }
 
         private static void SwapGenes(Chromosome chromosome, int firstGene)
         {
-            var random = new Random();
-            var secondGene = random.Next(chromosome.Genes.Length);
+            //var random = new Random();
+            //var secondGene = random.Next(chromosome.Genes.Length);
+            var secondGene = RandomHelper.RandomInt(chromosome.Genes.Length);
 
             var temp = chromosome.Genes[firstGene];
             chromosome.Genes[firstGene] = chromosome.Genes[secondGene];

@@ -8,9 +8,12 @@ namespace Berlin52
         {
             var fittest = ChromosomeHelper.FindFittest(population.Members);
 
-            Console.Clear();
-            Console.WriteLine($"Population: {populationNumber}");
-            Console.WriteLine($"Best Score: {fittest.Fitness}");
+            if (populationNumber % 100 == 0)
+            {
+                Console.Clear();
+                Console.WriteLine($"Population: {populationNumber}");
+                Console.WriteLine($"Best Score: {fittest.Fitness}");
+            }
         }
     }
 }
