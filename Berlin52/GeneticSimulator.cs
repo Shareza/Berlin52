@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Berlin52
+﻿namespace Berlin52
 {
     public class GeneticSimulator
     {
@@ -22,14 +16,12 @@ namespace Berlin52
         public void Start()
         {
             var fitnessProvider = new FitnessProvider(Distances);
-            var selectionProvider = new SelectionProvider(AppSetting.SelectionStrategy, AppSetting.SelectionRate);
-            var crossoverProvider = new CrossoverProvider(AppSetting.CrossoverStrategy, AppSetting.CrossOverRate);
-            var mutationProvider = new MutationProvider(AppSetting.MutationStrategy, AppSetting.GeneMutationRate, AppSetting.ChromosomeMutationRate, Distances);
+            var selectionProvider = new SelectionProvider();
+            var crossoverProvider = new CrossoverProvider();
+            var mutationProvider = new MutationProvider(Distances);
 
             while(AppSetting.NumberOfIterations > 0)
-            {
-                Logger.LogToConsole(Population, PopulationNumber);
-
+            {       
                 fitnessProvider.CalculateFitness(Population);
 
                 selectionProvider.Select(Population);
@@ -38,6 +30,7 @@ namespace Berlin52
 
                 mutationProvider.Mutate(Population);
 
+                Logger.LogToConsole(Population, PopulationNumber);
                 PopulationNumber++;
                 AppSetting.NumberOfIterations--;
             }

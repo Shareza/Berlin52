@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Berlin52
+﻿namespace Berlin52
 {
     public class FitnessProvider
     {

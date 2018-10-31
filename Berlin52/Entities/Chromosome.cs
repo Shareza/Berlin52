@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading;
-using Berlin52.Helpers;
+﻿using Berlin52.Helpers;
 
 namespace Berlin52
 {
@@ -8,7 +6,6 @@ namespace Berlin52
     {
         public int[] Genes { get; set; }
         public int Fitness { get; set; }
-        //private Random rnd = new Random();
 
         public Chromosome()
         {
@@ -34,14 +31,12 @@ namespace Berlin52
         {
             for (int i = 0; i < Genes.Length; i++)
             {
-                //var random = rnd.Next(AppSetting.NumberOfGenes);
                 var random = RandomHelper.RandomInt(AppSetting.NumberOfGenes);
                 var temp = Genes[i];
                 Genes[i] = Genes[random];
                 Genes[random] = temp;
-                //fix
-                //Thread.Sleep(rnd.Next(2));
             }
+
             var temp2 = Genes[0];
             Genes[0] = Genes[AppSetting.NumberOfGenes -1];
             Genes[AppSetting.NumberOfGenes -1] = temp2;
@@ -58,7 +53,7 @@ namespace Berlin52
                 fitness += distances[Genes[j], Genes[j + 1]];
             }
             fitness += distances[0, AppSetting.NumberOfGenes - 1];
-            Fitness = fitness;
+            this.Fitness = fitness;
         }
     }
 }

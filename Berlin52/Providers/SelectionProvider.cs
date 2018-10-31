@@ -4,21 +4,12 @@ namespace Berlin52
 {
     public class SelectionProvider
     {
-        private SelectionType selectionStrategy;
-        private int selectionRate;
-
-        public SelectionProvider(SelectionType selectionStrategy, int selectionRate)
-        {
-            this.selectionStrategy = selectionStrategy;
-            this.selectionRate = selectionRate;
-        }
-
         public void Select(Population population)
         {
-            switch(selectionStrategy)
+            switch(AppSetting.SelectionStrategy)
             {
-                case SelectionType.PMXSelection:
-                    PMXSelection(population);
+                case SelectionType.TournamentSelection:
+                    TournamentSelection(population);
                     break;
                 case SelectionType.RouletteSelection:
                     RouletteSelection(population);
@@ -31,13 +22,13 @@ namespace Berlin52
             throw new NotImplementedException();
         }
 
-        private void PMXSelection(Population population)
+        private void TournamentSelection(Population population)
         {
             var selected = new Chromosome[AppSetting.PopulationSize];
 
             for (int i = 0; i < AppSetting.PopulationSize; i++)
             {
-                var randomMembers = ChromosomeHelper.GetRandom(selectionRate, population.Members);
+                var randomMembers = ChromosomeHelper.GetRandom(AppSetting.SelectionRate, population.Members);
                 selected[i] = ChromosomeHelper.FindFittest(randomMembers);
             }
             population.Members = selected;
