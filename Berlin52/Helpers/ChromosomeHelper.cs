@@ -1,4 +1,5 @@
 ﻿using Berlin52.Helpers;
+using System;
 
 namespace Berlin52
 {
@@ -25,7 +26,14 @@ namespace Berlin52
                 if (randomMembers[i].Fitness < fittest.Fitness)
                     fittest = randomMembers[i];
             }
-            return fittest;
+
+            var test = new Chromosome()
+            {
+                Fitness = fittest.Fitness
+            };
+
+            Array.Copy(fittest.Genes, test.Genes, AppSetting.NumberOfGenes);
+            return test;
         }
     }
 }

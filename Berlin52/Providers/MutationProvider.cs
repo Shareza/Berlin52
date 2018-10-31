@@ -1,4 +1,5 @@
 ﻿using Berlin52.Helpers;
+using System;
 
 namespace Berlin52
 {
@@ -23,15 +24,17 @@ namespace Berlin52
 
         private void SwapMutation(Population population)
         {
-            for(int i = 0; i < population.Members.Length; i++)
+            var mutatedCount = 0;
+
+            for (int i = 0; i < population.Members.Length; i++)
             {
                 var mutationProbability = RandomHelper.RandomInt(1, 101);
 
                 if (mutationProbability <= AppSetting.ChromosomeMutationRate)
                 {
                     MutationHelper.MutateWithSwapStrategy(population.Members[i]);
-                }
-                
+                    mutatedCount++;
+                } 
             }
         }
     }

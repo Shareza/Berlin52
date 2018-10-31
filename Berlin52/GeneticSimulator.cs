@@ -1,16 +1,16 @@
-﻿namespace Berlin52
+﻿using System.Threading;
+
+namespace Berlin52
 {
     public class GeneticSimulator
     {
         private Population Population;
         private int[,] Distances;
-        private int PopulationNumber { get; set; }
 
         public GeneticSimulator(Population population, int[,] distances)
         {
             Population = population;
             Distances = distances;
-            PopulationNumber = 0;
         }
 
         public void Start()
@@ -20,8 +20,8 @@
             var crossoverProvider = new CrossoverProvider();
             var mutationProvider = new MutationProvider(Distances);
 
-            while(AppSetting.NumberOfIterations > 0)
-            {       
+            for (int iteration = 0; iteration < AppSetting.NumberOfIterations; iteration++)
+            {
                 fitnessProvider.CalculateFitness(Population);
 
                 selectionProvider.Select(Population);
@@ -30,9 +30,8 @@
 
                 mutationProvider.Mutate(Population);
 
-                Logger.LogToConsole(Population, PopulationNumber);
-                PopulationNumber++;
-                AppSetting.NumberOfIterations--;
+                Logger.LogToConsole(Population, iteration);
+                Thread.Sleep(5);
             }
         }
     }
