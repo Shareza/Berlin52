@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Berlin52.Helpers
+﻿namespace Berlin52.Helpers
 {
     public static class MutationHelper
     {

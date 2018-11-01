@@ -14,6 +14,7 @@ namespace Berlin52
         public void PopulateDistancesTable(string line, int iterator)
         {
             string[] items = line.Split(' ');
+            //fix later
             Array.Resize(ref items, items.Length - 1);
 
             for(int i = 0; i < items.Length; i++)

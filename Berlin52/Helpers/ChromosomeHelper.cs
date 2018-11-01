@@ -19,21 +19,21 @@ namespace Berlin52
 
         internal static Chromosome FindFittest(Chromosome[] randomMembers)
         {
-            var fittest = new Chromosome(50000);
+            var temp = new Chromosome(50000);
 
             for(int i = 0; i < randomMembers.Length; i++)
             {
-                if (randomMembers[i].Fitness < fittest.Fitness)
-                    fittest = randomMembers[i];
+                if (randomMembers[i].Fitness < temp.Fitness)
+                    temp = randomMembers[i];
             }
 
-            var test = new Chromosome()
+            var fittest = new Chromosome()
             {
-                Fitness = fittest.Fitness
+                Fitness = temp.Fitness
             };
 
-            Array.Copy(fittest.Genes, test.Genes, AppSetting.NumberOfGenes);
-            return test;
+            Array.Copy(temp.Genes, fittest.Genes, AppSetting.NumberOfGenes);
+            return fittest;
         }
     }
 }

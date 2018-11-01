@@ -1,4 +1,6 @@
-﻿namespace Berlin52
+﻿using Berlin52.Enums;
+
+namespace Berlin52
 {
     public static class AppSetting
     {
@@ -7,6 +9,7 @@
 
         public static int PopulationSize = 100;
         public static long NumberOfIterations = 1000000;
+        public static FitnessCalculatorType FitnessCalculatorType = FitnessCalculatorType.Default;
 
         public static SelectionType SelectionStrategy = SelectionType.TournamentSelection;
         public static int SelectionRate = 5;
