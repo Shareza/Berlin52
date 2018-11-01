@@ -1,5 +1,6 @@
 ﻿using Berlin52.Interfaces;
 using Berlin52.Providers;
+using Berlin52.Providers.Crossover;
 using System;
 
 namespace Berlin52.Factories
@@ -15,6 +16,9 @@ namespace Berlin52.Factories
 
                 case CrossoverType.MultiPointCrossover:
                     return new MultiPointCrossoverProvider();
+
+                case CrossoverType.PMXCrossover:
+                    return new PMXCrossoverProvider();
 
                 default:
                     throw new ArgumentNullException();

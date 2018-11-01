@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSetting.cs" />
+    <Compile Include="Entities\Parents.cs" />
+    <Compile Include="Helpers\CrossoverHelper.cs" />
+    <Compile Include="Providers\Crossover\PMXCrossoverProvider.cs" />
     <Compile Include="Providers\DefaultFitnessCalculatorProvider.cs" />
     <Compile Include="Entities\Chromosome.cs" />
     <Compile Include="Enums\FitnessCalculatorType.cs" />

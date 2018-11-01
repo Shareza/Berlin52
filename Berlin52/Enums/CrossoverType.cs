@@ -3,6 +3,7 @@
     public enum CrossoverType
     {
         SinglePointCrossover,
-        MultiPointCrossover
+        MultiPointCrossover,
+        PMXCrossover
     }
 }
