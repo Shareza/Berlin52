@@ -11,7 +11,7 @@ namespace Berlin52.Providers.Crossover
         {
             var parents = new List<Parents>();
 
-            for(int i = 0; i <= population.Members.Length -2 ;)
+            for (int i = 0; i <= population.Members.Length - 2;)
             {
                 var couple = new Parents()
                 {
@@ -41,12 +41,29 @@ namespace Berlin52.Providers.Crossover
         private static Chromosome CreateOffspringWithPMX(Chromosome firstParent, Chromosome secondParent)
         {
             var offspring = new Chromosome();
+            Array.Copy(firstParent.Genes, offspring.Genes, AppSetting.NumberOfGenes);
+
             var firstBorder = RandomHelper.RandomInt(AppSetting.NumberOfGenes);
             var secondBorder = RandomHelper.RandomInt(AppSetting.NumberOfGenes);
 
-
+            CopyDNAFromParent(offspring, secondParent, firstBorder, secondBorder);
 
             return offspring;
+        }
+
+        private static void CopyDNAFromParent(Chromosome offspring, Chromosome parent, int firstBorder, int secondBorder)
+        {
+            if (firstBorder > secondBorder)
+            {
+                var temp = secondBorder;
+                secondBorder = firstBorder;
+                firstBorder = temp;
+            }
+
+            for (int i = firstBorder; i <= secondBorder; i++)
+            {
+                offspring.Genes[i] = parent.Genes[i];
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Berlin52
         public static string FilePath = @"..\..\Data.txt";
         public static int NumberOfGenes;
 
-        public static int PopulationSize = 40; //Population size needs to be even number
+        public static int PopulationSize = 50; //Population size needs to be even number
         public static long NumberOfIterations = 1000000;
         public static FitnessCalculatorType FitnessCalculatorType = FitnessCalculatorType.Default;
 
@@ -18,6 +18,6 @@ namespace Berlin52
         public static int CrossOverRate = 0;
 
         public static MutationType MutationStrategy = MutationType.SwapMutation;
-        public static int ChromosomeMutationRate = 30;
+        public static int ChromosomeMutationRate = 40;
     }
 }
