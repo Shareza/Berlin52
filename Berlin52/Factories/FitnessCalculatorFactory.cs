@@ -16,7 +16,7 @@ namespace Berlin52
         {
             switch(AppSetting.FitnessCalculatorType)
             {
-                case FitnessCalculatorType.Default:
+                case FitnessCalculatorType.DefaultFitnessCalculator:
                     return new DefaultFitnessCalculatorProvider(Distances);
 
                 default:

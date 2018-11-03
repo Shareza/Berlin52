@@ -20,6 +20,9 @@ namespace Berlin52.Factories
                 case CrossoverType.PMXCrossover:
                     return new PMXCrossoverProvider();
 
+                case CrossoverType.OrderedCrossoverWithMultiPoint:
+                    return new OXCrossoverWithMultiPointProvider();
+
                 default:
                     throw new ArgumentNullException();
             }

@@ -32,14 +32,14 @@ namespace Berlin52
             {
                 fitnessCalculator.CalculateFitness(Population);
 
+                Logger.LogToConsole(Population, iteration);
+                //Thread.Sleep(1);
+
                 selectionProvider.Select(Population);
 
                 crossoverProvider.Crossover(Population);
 
                 mutationProvider.Mutate(Population);
-
-                Logger.LogToConsole(Population, iteration);
-                Thread.Sleep(5);
             }
         }
     }

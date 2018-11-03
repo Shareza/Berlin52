@@ -14,5 +14,10 @@ namespace Berlin52.Helpers
         {
             return Random.Next(minValue, maxValue);
         }
+
+        public static bool RandomBool()
+        {
+            return Random.Next() % 2 == 0;
+        }
     }
 }

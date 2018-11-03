@@ -38,6 +38,11 @@ namespace Berlin52.Providers.Crossover
             return offsprings;
         }
 
+        public static void CopyGenes(Chromosome source, Chromosome destination)
+        {
+            Array.Copy(source.Genes, destination.Genes, AppSetting.NumberOfGenes);
+        }
+
         private static Chromosome CreateOffspringWithPMX(Chromosome firstParent, Chromosome secondParent)
         {
             var offspring = new Chromosome();
@@ -46,24 +51,78 @@ namespace Berlin52.Providers.Crossover
             var firstBorder = RandomHelper.RandomInt(AppSetting.NumberOfGenes);
             var secondBorder = RandomHelper.RandomInt(AppSetting.NumberOfGenes);
 
-            CopyDNAFromParent(offspring, secondParent, firstBorder, secondBorder);
+            //CopyDNAFromParent(offspring, secondParent, firstBorder, secondBorder);
 
             return offspring;
         }
 
-        private static void CopyDNAFromParent(Chromosome offspring, Chromosome parent, int firstBorder, int secondBorder)
+        public static void FillGenesWithParentDNA(Offspring offspring, Chromosome parent)
         {
-            if (firstBorder > secondBorder)
-            {
-                var temp = secondBorder;
-                secondBorder = firstBorder;
-                firstBorder = temp;
-            }
+            var j = AppSetting.NumberOfGenes - 1;
 
-            for (int i = firstBorder; i <= secondBorder; i++)
+            for (int i = AppSetting.NumberOfGenes -1; i >= 0; i--)
             {
-                offspring.Genes[i] = parent.Genes[i];
+                while(offspring.Genes[i] == -1)
+                {                   
+                    if(parent.Genes[j] != -1)
+                    {
+                        offspring.Genes[i] = parent.Genes[j];
+                    }
+                    j--;
+                }
             }
         }
+
+        public static void FillGenesWithValue(int[] genes, int v)
+        {
+            for(int i = 0; i < genes.Length; i++)
+            {
+                genes[i] = v;
+            }
+        }
+
+        public static void RemoveGenesFromParent(int[] inheritedGenes, Chromosome secondParent)
+        {
+            for(int i = 0; i < inheritedGenes.Length; i++)
+            {
+                var index = Array.IndexOf(secondParent.Genes, inheritedGenes[i]);
+                secondParent.Genes[index] = -1;
+            }
+        }
+
+        public static int[] CopyDNAFromParent(Chromosome parent, int firstCrossingPoint, int secondCrossingPoint)
+        {
+            if (firstCrossingPoint > secondCrossingPoint)
+            {
+                var temp = secondCrossingPoint;
+                secondCrossingPoint = firstCrossingPoint;
+                firstCrossingPoint = temp;
+            }
+
+            var genes = new int[secondCrossingPoint - firstCrossingPoint + 1];
+            var j = 0;
+
+            for (int i = firstCrossingPoint; i <= secondCrossingPoint; i++)
+            {
+                genes[j] = parent.Genes[i];
+                j++;
+            }
+            return genes;
+        }
+
+        //private static void CopyDNAFromParent(Chromosome offspring, Chromosome parent, int firstBorder, int secondBorder)
+        //{
+        //    if (firstBorder > secondBorder)
+        //    {
+        //        var temp = secondBorder;
+        //        secondBorder = firstBorder;
+        //        firstBorder = temp;
+        //    }
+
+        //    for (int i = firstBorder; i <= secondBorder; i++)
+        //    {
+        //        offspring.Genes[i] = parent.Genes[i];
+        //    }
+        //}
     }
 }

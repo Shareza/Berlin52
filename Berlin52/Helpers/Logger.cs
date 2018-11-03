@@ -4,16 +4,42 @@ namespace Berlin52
 {
     public static class Logger
     {
+        static int fittestEver = 20000;
+
         public static void LogToConsole(Population population, int populationNumber)
         {
-            var fittest = ChromosomeHelper.FindFittest(population.Members);
+            var fittestInPopulation = ChromosomeHelper.FindFittest(population.Members);
 
-                Console.Clear();
-                Console.WriteLine($"Population: {populationNumber}");
-                Console.WriteLine($"Best Score: {fittest.Fitness}");
+            Console.Clear();
+            Console.WriteLine($"Population Size: {AppSetting.PopulationSize}");
             Console.WriteLine();
-                foreach (var gene in fittest.Genes)
-                    Console.Write($"{gene}, ");
+            Console.WriteLine($"Using: {AppSetting.FitnessCalculatorType}");
+            Console.WriteLine();
+            Console.WriteLine($"Using: {AppSetting.SelectionStrategy.ToString()}");
+            Console.WriteLine($"Selection Rate: {AppSetting.SelectionRate}");
+            Console.WriteLine();
+            Console.WriteLine($"Using {AppSetting.CrossoverStrategy.ToString()}");
+            Console.WriteLine();
+            Console.WriteLine($"Using {AppSetting.MutationStrategy.ToString()}");
+            Console.WriteLine($"Mutation Rate: {AppSetting.ChromosomeMutationRate}%");
+            Console.WriteLine($"Single Gene Mutation: {AppSetting.SingleGeneMutation.ToString()}");
+            Console.WriteLine($"Multi Gene Mutation: {AppSetting.MultiGeneMutation.ToString()}");
+
+            Console.WriteLine();
+            Console.WriteLine($"Population: {populationNumber}");
+            Console.WriteLine($"Best Score: {fittestInPopulation.Fitness}");
+
+            if (fittestInPopulation.Fitness < fittestEver)
+                fittestEver = fittestInPopulation.Fitness;
+
+            Console.WriteLine($"Fittest: {fittestEver}");
+            Console.WriteLine();
+                foreach (var gene in fittestInPopulation.Genes)
+                    Console.Write($"{gene}-");
+
+
+
+                
         }
     }
 }

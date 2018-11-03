@@ -4,6 +4,7 @@
     {
         SinglePointCrossover,
         MultiPointCrossover,
-        PMXCrossover
+        PMXCrossover,
+        OrderedCrossoverWithMultiPoint
     }
 }
