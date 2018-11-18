@@ -15,8 +15,8 @@
                 chromosome.Genes[secondGene] = temp;
             }
 
-            if (AppSetting.MultiGeneMutation)
-            {
+            else
+            { 
                 for (int i = 0; i < chromosome.Genes.Length; i++)
                 {
                     bool shouldMutateGene = RandomHelper.RandomBool();

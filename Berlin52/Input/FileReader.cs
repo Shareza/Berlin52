@@ -24,8 +24,13 @@ namespace Berlin52
 
                 while ((line = sr.ReadLine()) != null)
                 {
-                    data.PopulateDistancesTable(line, iterator);
-                    iterator++;
+                    if (line == String.Empty)
+                        continue;
+                    else
+                    {
+                        data.PopulateDistancesTable(line, iterator);
+                        iterator++;
+                    }
                 }
             }   
         }

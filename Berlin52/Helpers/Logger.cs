@@ -4,7 +4,7 @@ namespace Berlin52
 {
     public static class Logger
     {
-        static int fittestEver = 20000;
+        static int fittestEver = 50000000;
 
         public static void LogToConsole(Population population, int populationNumber)
         {
@@ -22,8 +22,10 @@ namespace Berlin52
             Console.WriteLine();
             Console.WriteLine($"Using {AppSetting.MutationStrategy.ToString()}");
             Console.WriteLine($"Mutation Rate: {AppSetting.ChromosomeMutationRate}%");
-            Console.WriteLine($"Single Gene Mutation: {AppSetting.SingleGeneMutation.ToString()}");
-            Console.WriteLine($"Multi Gene Mutation: {AppSetting.MultiGeneMutation.ToString()}");
+            if(AppSetting.SingleGeneMutation == true)
+                Console.WriteLine($"Single Gene Mutation");
+            else
+                Console.WriteLine($"Multi Gene Mutation");
 
             Console.WriteLine();
             Console.WriteLine($"Population: {populationNumber}");
@@ -36,6 +38,7 @@ namespace Berlin52
             Console.WriteLine();
                 foreach (var gene in fittestInPopulation.Genes)
                     Console.Write($"{gene}-");
+            Console.Write($"{fittestInPopulation.Fitness}");
 
 
 

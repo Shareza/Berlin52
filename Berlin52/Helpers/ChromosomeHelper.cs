@@ -19,7 +19,7 @@ namespace Berlin52
 
         internal static Chromosome FindFittest(Chromosome[] randomMembers)
         {
-            var temp = new Chromosome(50000);
+            var temp = new Chromosome(500000000);
 
             for(int i = 0; i < randomMembers.Length; i++)
             {

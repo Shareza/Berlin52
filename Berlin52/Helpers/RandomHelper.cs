@@ -10,6 +10,7 @@ namespace Berlin52.Helpers
         {
             return Random.Next(maxValue);
         }
+
         public static int RandomInt(int minValue, int maxValue)
         {
             return Random.Next(minValue, maxValue);
