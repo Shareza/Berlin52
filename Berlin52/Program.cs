@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Berlin52
 {
@@ -6,6 +7,9 @@ namespace Berlin52
     {
         static void Main(string[] args)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
             FileReader reader = new FileReader(AppSetting.FilePath);
             reader.GetData();
 
@@ -14,7 +18,7 @@ namespace Berlin52
 
             Population population = new Population(members);
 
-            GeneticSimulator simulation = new GeneticSimulator(population, reader.data.Distances);
+            GeneticSimulator simulation = new GeneticSimulator(population, reader.data.Distances, stopWatch);
             simulation.Start();
 
             Console.ReadKey();

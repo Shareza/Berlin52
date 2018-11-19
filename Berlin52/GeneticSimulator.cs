@@ -1,6 +1,6 @@
 ﻿using Berlin52.Factories;
 using Berlin52.Interfaces;
-using System.Threading;
+using System.Diagnostics;
 
 namespace Berlin52
 {
@@ -11,10 +11,12 @@ namespace Berlin52
         private CrossoverProviderFactory crossoverProviderFactory;
         private MutationProviderFactory mutationProviderFactory;
         private FitnessCalculatorFactory fitnessCalculatorFactory;
+        private Stopwatch StopWatch;
 
-        public GeneticSimulator(Population population, int[,] distances)
+        public GeneticSimulator(Population population, int[,] distances, Stopwatch stopWatch)
         {
             Population = population;
+            StopWatch = stopWatch;
             fitnessCalculatorFactory = new FitnessCalculatorFactory(distances);
             selectionProviderFactory = new SelectionProviderFactory();
             crossoverProviderFactory = new CrossoverProviderFactory();
@@ -32,7 +34,7 @@ namespace Berlin52
             {
                 fitnessCalculator.CalculateFitness(Population);
 
-                Logger.LogToConsole(Population, iteration);
+                Logger.LogToConsole(Population, iteration, StopWatch);
 
                 selectionProvider.Select(Population);
 

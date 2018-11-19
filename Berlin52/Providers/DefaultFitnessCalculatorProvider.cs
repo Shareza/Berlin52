@@ -16,11 +16,11 @@
             for (int i = 0; i < AppSetting.PopulationSize; i++)
             {
                 //for (int j = 1; j < AppSetting.NumberOfGenes - 2; j++)
-                for (int j = 0; j < AppSetting.NumberOfGenes - 2; j++)
+                for (int j = 0; j < AppSetting.NumberOfGenes - 1; j++)
                 {
                     fitness += Distances[population.Members[i].Genes[j], population.Members[i].Genes[j + 1]];
                 }
-                fitness += Distances[AppSetting.NumberOfGenes - 1, 0];
+                fitness += Distances[population.Members[i].Genes[AppSetting.NumberOfGenes - 1], population.Members[i].Genes[0]];
                 population.Members[i].Fitness = fitness;
                 fitness = 0;
             }
