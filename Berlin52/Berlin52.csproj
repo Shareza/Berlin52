@@ -46,6 +46,7 @@
     <Compile Include="AppSetting.cs" />
     <Compile Include="Entities\Offspring.cs" />
     <Compile Include="Entities\Parents.cs" />
+    <Compile Include="Providers\Mutation\InversionMutationProvider.cs" />
     <Compile Include="Providers\Crossover\OXCrossoverWithMultiPointProvider.cs" />
     <Compile Include="Helpers\CrossoverHelper.cs" />
     <Compile Include="Providers\Crossover\PMXCrossoverProvider.cs" />

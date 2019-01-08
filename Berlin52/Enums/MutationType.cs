@@ -2,6 +2,7 @@
 {
     public enum MutationType
     {
-        SwapMutation
+        SwapMutation,
+        InversionMutation
     }
 }

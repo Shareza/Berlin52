@@ -5,40 +5,46 @@ namespace Berlin52
 {
     public static class Logger
     {
-        static int fittestEver = 50000000;
+        static Chromosome fittestEver = new Chromosome
+        {
+            Fitness = 50000000
+        };
 
         public static void LogToConsole(Population population, int populationNumber, Stopwatch stopWatch)
         {
             var fittestInPopulation = ChromosomeHelper.FindFittest(population.Members);
 
-            Console.Clear();
+            if (populationNumber % AppSetting.DisplayRate == 0)
+            {
+                Console.Clear();
 
-            Console.WriteLine($"{AppSetting.FitnessCalculatorType}");
-            Console.WriteLine($"{AppSetting.SelectionStrategy.ToString()}");
-            Console.WriteLine($"{AppSetting.CrossoverStrategy.ToString()}");
-            if (AppSetting.SingleGeneMutation == true)
-                Console.WriteLine($"Single Gene Mutation");
-            else
-                Console.WriteLine($"Multi Gene Mutation");
+                Console.WriteLine($"{AppSetting.FitnessCalculatorType}");
+                Console.WriteLine($"{AppSetting.SelectionStrategy.ToString()}");
+                Console.WriteLine($"{AppSetting.CrossoverStrategy.ToString()}");
 
-            Console.WriteLine($"{AppSetting.MutationStrategy.ToString()}\n");
 
-            Console.WriteLine($"Population Size: {AppSetting.PopulationSize}");
-            Console.WriteLine($"Selection Rate: {AppSetting.SelectionRate}");
-            Console.WriteLine($"Mutation Rate: {AppSetting.ChromosomeMutationRate}%\n");
+                Console.WriteLine($"{AppSetting.MutationStrategy.ToString()}\n");
 
-            Console.WriteLine($"Time Elapsed: {stopWatch.Elapsed}");
-            Console.WriteLine($"Generation: {populationNumber}");
-            Console.WriteLine($"Best Score: {fittestInPopulation.Fitness}");
+                Console.WriteLine($"Population Size: {AppSetting.PopulationSize}");
+                Console.WriteLine($"Selection Rate: {AppSetting.SelectionRate}");
+                Console.WriteLine($"Mutation Rate: {AppSetting.ChromosomeMutationRate}%\n");
 
-            if (fittestInPopulation.Fitness < fittestEver)
-                fittestEver = fittestInPopulation.Fitness;
+                Console.WriteLine($"Time Elapsed: {stopWatch.Elapsed}");
+                Console.WriteLine($"Generation: {populationNumber}");
+                Console.WriteLine($"Best Score: {fittestInPopulation.Fitness}");
 
-            Console.WriteLine($"Fittest: {fittestEver}");
-            Console.WriteLine();
-                foreach (var gene in fittestInPopulation.Genes)
+                if (fittestInPopulation.Fitness < fittestEver.Fitness)
+                {
+                    fittestEver.Fitness = fittestInPopulation.Fitness;
+                    Array.Copy(fittestInPopulation.Genes, fittestEver.Genes, AppSetting.NumberOfGenes);
+                }
+
+                Console.WriteLine($"Fittest: {fittestEver.Fitness}");
+                Console.WriteLine();
+                foreach (var gene in fittestEver.Genes)
                     Console.Write($"{gene}-");
-            Console.Write($"{fittestInPopulation.Fitness}");
+                Console.Write($"{fittestEver.Fitness}");
+            }
 
 
 

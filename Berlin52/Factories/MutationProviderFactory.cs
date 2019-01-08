@@ -12,6 +12,9 @@ namespace Berlin52
                 case MutationType.SwapMutation:
                     return new SwapMutationProvider();
 
+                case MutationType.InversionMutation:
+                    return new InversionMutationProvider();
+
                 default:
                     throw new ArgumentNullException();
             }

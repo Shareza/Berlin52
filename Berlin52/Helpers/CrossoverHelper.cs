@@ -109,20 +109,5 @@ namespace Berlin52.Providers.Crossover
             }
             return genes;
         }
-
-        //private static void CopyDNAFromParent(Chromosome offspring, Chromosome parent, int firstBorder, int secondBorder)
-        //{
-        //    if (firstBorder > secondBorder)
-        //    {
-        //        var temp = secondBorder;
-        //        secondBorder = firstBorder;
-        //        firstBorder = temp;
-        //    }
-
-        //    for (int i = firstBorder; i <= secondBorder; i++)
-        //    {
-        //        offspring.Genes[i] = parent.Genes[i];
-        //    }
-        //}
     }
 }

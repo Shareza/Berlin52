@@ -17,8 +17,18 @@ namespace Berlin52.Factories
 
             for(int i = 0; i < temp; i++)
             {
-                newMembers[i] = GetOffspring(parents[i].firstParent, parents[i].secondParent);
-                newMembers[temp] = GetOffspring(parents[i].secondParent, parents[i].firstParent);
+                var chanceToCrossover = RandomHelper.RandomInt(1, 101);
+
+                if (chanceToCrossover <= AppSetting.CrossOverRate)
+                {
+                    newMembers[i] = GetOffspring(parents[i].firstParent, parents[i].secondParent);
+                    newMembers[temp] = GetOffspring(parents[i].secondParent, parents[i].firstParent);
+                }
+                else
+                {
+                    newMembers[i] = parents[i].firstParent;
+                    newMembers[temp] = parents[i].secondParent;
+                }
                 temp--;
             }
 
