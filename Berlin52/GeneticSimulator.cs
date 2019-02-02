@@ -30,7 +30,7 @@ namespace Berlin52
             ICrossoverProvider crossoverProvider = crossoverProviderFactory.Create();
             IMutationProvider mutationProvider = mutationProviderFactory.Create();
 
-            for (int iteration = 0; iteration < AppSetting.NumberOfIterations; iteration++)
+            for (int iteration = 0; iteration <= AppSetting.NumberOfIterations; iteration++)
             {
                 fitnessCalculator.CalculateFitness(Population);
 

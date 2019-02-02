@@ -44,8 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSetting.cs" />
+    <Compile Include="Entities\CrossingPoints.cs" />
     <Compile Include="Entities\Offspring.cs" />
     <Compile Include="Entities\Parents.cs" />
+    <Compile Include="Providers\Mutation\NoMutationProvider.cs" />
+    <Compile Include="Providers\Crossover\NoCrossoverProvider.cs" />
+    <Compile Include="Providers\Mutation\ScrambleMutationProvider.cs" />
     <Compile Include="Providers\Mutation\InversionMutationProvider.cs" />
     <Compile Include="Providers\Crossover\OXCrossoverWithMultiPointProvider.cs" />
     <Compile Include="Helpers\CrossoverHelper.cs" />
@@ -72,13 +76,11 @@
     <Compile Include="Input\InputData.cs" />
     <Compile Include="Input\FileReader.cs" />
     <Compile Include="Enums\MutationType.cs" />
-    <Compile Include="Providers\Crossover\MultiPointCrossoverProvider.cs" />
     <Compile Include="Entities\Population.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\SelectionType.cs" />
     <Compile Include="Providers\Selection\RouletteSelectionProvider.cs" />
-    <Compile Include="Providers\Crossover\SinglePointCrossoverProvider.cs" />
     <Compile Include="Providers\Selection\TournamentSelectionProvider.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,11 +11,8 @@ namespace Berlin52.Factories
         {
             switch (AppSetting.CrossoverStrategy)
             {
-                case CrossoverType.SinglePointCrossover:
-                    return new SinglePointCrossoverProvider();
-
-                case CrossoverType.MultiPointCrossover:
-                    return new MultiPointCrossoverProvider();
+                case CrossoverType.None:
+                    return new NoCrossoverProvider();
 
                 case CrossoverType.PMXCrossover:
                     return new PMXCrossoverProvider();

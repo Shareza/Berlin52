@@ -6,10 +6,13 @@ namespace Berlin52
     {
         public static string FilePath = @"..\..\berlin52.txt";
         public static int NumberOfGenes;
-        public static int DisplayRate = 10000;
+        public static bool DisplaySetup = false;
+        public static bool DisplayTimer = false;
+        public static bool DisplayNodes = true;
+        public static int DisplayRate = 1000;
 
         public static int PopulationSize = 40; //Population size needs to be even number
-        public static long NumberOfIterations = 1000001;
+        public static long NumberOfIterations = 1000000;
         public static FitnessCalculatorType FitnessCalculatorType = FitnessCalculatorType.DefaultFitnessCalculator;
 
         public static SelectionType SelectionStrategy = SelectionType.TournamentSelection;
@@ -19,12 +22,9 @@ namespace Berlin52
         public static int CrossOverRate = 75;
 
         public static MutationType MutationStrategy = MutationType.InversionMutation;
-        public static int ChromosomeMutationRate = 5;
-        public static int GeneMutationRate = 3;
+        public static int ChromosomeMutationRate = 35;
 
-        //Population: 40
-        //SelectionRate: 3
-        //ChromosomeMutationRate: 15
-        //SingleGeneMutation: true
+        // Applies to SwapMutation only
+        public static int GeneMutationRate = 3;
     }
 }

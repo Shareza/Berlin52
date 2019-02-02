@@ -18,20 +18,26 @@ namespace Berlin52
             {
                 Console.Clear();
 
-                Console.WriteLine($"{AppSetting.FitnessCalculatorType}");
-                Console.WriteLine($"{AppSetting.SelectionStrategy.ToString()}");
-                Console.WriteLine($"{AppSetting.CrossoverStrategy.ToString()}");
+                if (AppSetting.DisplaySetup)
+                {
+                    Console.WriteLine($"{AppSetting.FitnessCalculatorType}");
+                    Console.WriteLine($"{AppSetting.SelectionStrategy.ToString()}");
+                    Console.WriteLine($"{AppSetting.CrossoverStrategy.ToString()}");
+                    Console.WriteLine($"{AppSetting.MutationStrategy.ToString()}\n");
 
+                    Console.WriteLine($"Population Size: {AppSetting.PopulationSize}");
+                    Console.WriteLine($"Selection Rate: {AppSetting.SelectionRate}");
+                    Console.WriteLine($"Mutation Rate: {AppSetting.ChromosomeMutationRate}%\n");
+                }
 
-                Console.WriteLine($"{AppSetting.MutationStrategy.ToString()}\n");
+                if (AppSetting.DisplayTimer)
+                {
+                    Console.WriteLine($"Time Elapsed: {stopWatch.Elapsed}");
+                }
 
-                Console.WriteLine($"Population Size: {AppSetting.PopulationSize}");
-                Console.WriteLine($"Selection Rate: {AppSetting.SelectionRate}");
-                Console.WriteLine($"Mutation Rate: {AppSetting.ChromosomeMutationRate}%\n");
-
-                Console.WriteLine($"Time Elapsed: {stopWatch.Elapsed}");
                 Console.WriteLine($"Generation: {populationNumber}");
-                Console.WriteLine($"Best Score: {fittestInPopulation.Fitness}");
+                Console.WriteLine($"Best in generation: {fittestInPopulation.Fitness}");
+                Console.WriteLine($"Best ever: {fittestEver.Fitness}");
 
                 if (fittestInPopulation.Fitness < fittestEver.Fitness)
                 {
@@ -39,11 +45,14 @@ namespace Berlin52
                     Array.Copy(fittestInPopulation.Genes, fittestEver.Genes, AppSetting.NumberOfGenes);
                 }
 
-                Console.WriteLine($"Fittest: {fittestEver.Fitness}");
-                Console.WriteLine();
-                foreach (var gene in fittestEver.Genes)
-                    Console.Write($"{gene}-");
-                Console.Write($"{fittestEver.Fitness}");
+                if (AppSetting.DisplayNodes)
+                {
+
+                    Console.WriteLine();
+                    foreach (var gene in fittestEver.Genes)
+                        Console.Write($"{gene}-");
+                    Console.Write($"{fittestEver.Fitness}");
+                }
             }
 
 

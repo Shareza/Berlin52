@@ -1,8 +1,8 @@
 ﻿using Berlin52.Interfaces;
 
-namespace Berlin52.Providers
+namespace Berlin52.Factories
 {
-    public class MultiPointCrossoverProvider : ICrossoverProvider
+    public class NoCrossoverProvider : ICrossoverProvider
     {
         public void Crossover(Population population)
         {
